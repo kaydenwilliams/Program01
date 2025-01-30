@@ -1,27 +1,55 @@
 package program01;
 
+import java.util.Random;
+
 public class Program01 {
-	
-	public static void main(String[] args) {
 		
-		public static void initDeck(boolean[] deck)
-		// set the values of deck to indicate that they are all
-		// present - not dealt yet.
-		public static boolean emptyDeck(boolean[] deck)
-		// returns whether or not all the cards in the deck
-		// have already been dealt.
-		public static int dealCard(boolean[] deck)
-		// returns a card (an int in the range 0 to 51) at random
-		// that has not been dealt since the deck was initialize
-		// via intDeck. Also notes (in deck) that this card is
-		// no longer available.
-		public static void printCard(int card)
-		// given a card (an int in the range 0 to 51) prints
-		// an appropriate representation of this card based
-		// on a 1-1 and onto mapping of the set [0, 51] to
-		// the cards described above.
+		public static void initDeck(boolean[] deck) {
+			// set the values of deck to indicate that they are all
+			// present - not dealt yet.
+			for (int i = 0; i < 52; i++) {
+				deck[i]= true;
+				}
+			}
+
+		public static boolean emptyDeck(boolean[] deck) {
+			// returns whether or not all the cards in the deck
+			// have already been dealt.
+			}
+		
+		public static int dealCard(boolean[] deck) {
+			// returns a card (an int in the range 0 to 51) at random
+			// that has not been dealt since the deck was initialize
+			// via intDeck. Also notes (in deck) that this card is
+			// no longer available.
+			
+			Random random = new Random();
+			
+			int cardIndex;
+			
+			do {
+				cardIndex = random.nextInt(52);
+			}
+			while (!deck[cardIndex]);
+			
+			deck[cardIndex] = false;
+			
+			return cardIndex;
+			
+			}
+
+			
+		
+		public static void printCard(int card) {
+			// given a card (an int in the range 0 to 51) prints
+			// an appropriate representation of this card based
+			// on a 1-1 and onto mapping of the set [0, 51] to
+			// the cards described above.
+			}
 		
 		
+		public static void main(String[] args) {
+			
 		boolean[] myDeck = new boolean[52];
 		final int cardsPerRow = 8;
 		int cardsThisRow = 0;
@@ -45,7 +73,8 @@ public class Program01 {
 				System.out.print(" "); 
 				}
 			}
+		
 		System.out.println("\n");
-	
+
 	}
 }
